@@ -1,6 +1,6 @@
-# Q&A DataBase
+# QE Q&A DataBase (QQDb) of UM G. CHEN Lab
 
-This is a simple Q&A database page where users can search for questions and their answers.
+This is a simple Q&A database page where users, mostly colleagues from my lab, can search for questions that were once raised during one of our lab members' PhD qualification exam and their answers.
 
 ## Features
 
@@ -9,6 +9,12 @@ This is a simple Q&A database page where users can search for questions and thei
 - View additional information about each question, such as the frequency it's been asked, the occasion it's typically asked on, and who asked it
 - View images for some answers
 - Submit new questions (see below for the template)
+
+## How to access CHEN Lab QQDb
+
+For general use, I believe [this webpage[(https://qqdbumgc.github.io/) would be sufficient for general search and browsing.
+But if you need the [raw .js file](https://github.com/QQDbUMGC/QQDbUMGC.github.io/blob/main/questions.js) that contains questions and answers, as well as other indexes, it is [here](https://github.com/QQDbUMGC/QQDbUMGC.github.io/blob/main/questions.js). But in the best-case scenario, the information inside will only be the same as the content on the webpage.
+There is a [test page](https://qqdbumgc.github.io/tst) for QQDb where some newest features might be accessible.
 
 ## New Question Submission Template
 
@@ -46,3 +52,6 @@ Please note that all submitted questions will be reviewed before being added to 
 ## Feedback
 
 If you have any feedback or suggestions for improving this page, please don't hesitate to post it in the [Discussions](https://github.com/QQDbUMGC/QQDbUMGC.github.io/discussions) and let us know!
+
+## Acknowledgement
+My coding skill sucks and tweaking css might be the most sophisticated stunt I could pull. Most of the coding was done by New Bing. Therefore, I would like to express my gratitude to the developers of the relevant models and interfaces, as well as New Bing AI itself, for their assistance with this webpage.
