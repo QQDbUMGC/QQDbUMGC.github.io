@@ -12,8 +12,8 @@ This is a simple Q&A database page where users, mostly colleagues from my lab, c
 
 ## How to access CHEN Lab QQDb
 
-For general use, I believe [this webpage](https://qqdbumgc.github.io/) would be sufficient for general search and browsing.<br>
-But if you need the [raw .js file](https://github.com/QQDbUMGC/QQDbUMGC.github.io/blob/main/questions.js) that contains questions and answers, as well as other indexes, it is [here](https://github.com/QQDbUMGC/QQDbUMGC.github.io/blob/main/questions.js). But in the best-case scenario, the information inside will only be the same as the content on the webpage.<br>
+<b>For general use, I believe [this webpage](https://qqdbumgc.github.io/) would be sufficient for general search and browsing.</b><br>
+If you need the [raw .js file](https://github.com/QQDbUMGC/QQDbUMGC.github.io/blob/main/questions.js) that contains questions and answers, as well as other indexes, it is [here](https://github.com/QQDbUMGC/QQDbUMGC.github.io/blob/main/questions.js). But in the best-case scenario, the information inside will only be the same as the content on the webpage.<br>
 There is a [test page](https://qqdbumgc.github.io/tst) for QQDb where some newest features might be accessible.
 
 ## New Question Submission Template
