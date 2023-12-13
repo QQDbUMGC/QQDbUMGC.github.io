@@ -92,6 +92,10 @@
                             result.innerHTML += '<br>';
                             result.appendChild(img);
                         }
+                        result.innerHTML = '<strong>Frequency:</strong> ' + questions[i].frequency +
+                                           '<br><strong>Occasion:</strong> ' + questions[i].occasion +
+                                           '<br><strong>Asker:</strong> ' + questions[i].asker +
+                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
                         searchResults.appendChild(result);
                     }
                 }
