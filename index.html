@@ -44,25 +44,33 @@
 
     <script src="questions.js"></script>
     <script>
-        function searchQuestions() {
-            var searchBox = document.getElementById('searchBox');
-            var tagBox = document.getElementById('tagBox');
-            var searchResults = document.getElementById('searchResults');
-            var searchQuery = searchBox.value.toLowerCase();
-            var tagQuery = tagBox.value.toLowerCase();
-            searchResults.innerHTML = '';
-
-            for (var i = 0; i < questions.length; i++) {
-                if (questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery)) {
-                    var result = document.createElement('div');
-                    result.innerHTML = '<strong>Question:</strong> ' + questions[i].question +
-                                       '<br><strong>Answer:</strong> ' + questions[i].answer +
-                                       '<br><strong>Time:</strong> ' + questions[i].time +
-                                       '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
-                    searchResults.appendChild(result);
+        <script>
+            function searchQuestions() {
+                var searchBox = document.getElementById('searchBox');
+                var tagBox = document.getElementById('tagBox');
+                var searchResults = document.getElementById('searchResults');
+                var searchQuery = searchBox.value.toLowerCase();
+                var tagQuery = tagBox.value.toLowerCase();
+                searchResults.innerHTML = '';
+        
+                for (var i = 0; i < questions.length; i++) {
+                    if (questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery)) {
+                        var result = document.createElement('div');
+                        result.innerHTML = '<strong>Question:</strong> ' + questions[i].question +
+                                           '<br><strong>Answer:</strong> ' + questions[i].answer +
+                                           '<br><strong>Frequency:</strong> ' + questions[i].frequency +
+                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ') +
+                                           '<br><strong>Occasion:</strong> ' + questions[i].occasion;
+                        if (questions[i].imageUrl) {
+                            var img = document.createElement('img');
+                            img.src = questions[i].imageUrl;
+                            img.style.width = '200px';
+                            result.appendChild(img);
+                        }
+                        searchResults.appendChild(result);
+                    }
                 }
             }
-        }
-    </script>
+        </script>
 </body>
 </html>
