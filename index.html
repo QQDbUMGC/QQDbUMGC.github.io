@@ -58,8 +58,9 @@
                         result.innerHTML = '<strong>Question:</strong> ' + questions[i].question +
                                            '<br><strong>Answer:</strong> ' + questions[i].answer +
                                            '<br><strong>Frequency:</strong> ' + questions[i].frequency +
-                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ') +
-                                           '<br><strong>Occasion:</strong> ' + questions[i].occasion;
+                                           '<br><strong>Occasion:</strong> ' + questions[i].occasion +
+                                           '<br><strong>Asker:</strong> ' + questions[i].asker +
+                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
                         if (questions[i].imageUrl) {
                             var img = document.createElement('img');
                             img.src = questions[i].imageUrl;
