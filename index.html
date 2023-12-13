@@ -41,6 +41,7 @@
     <input type="text" id="searchBox" placeholder="Search questions..." onkeyup="searchQuestions()">
     <input type="text" id="tagBox" placeholder="Filter by tags..." onkeyup="searchQuestions()">
     <div id="searchResults"></div>
+
     <script src="questions.js"></script>
         <script>
             function searchQuestions() {
@@ -50,7 +51,7 @@
                 var searchQuery = searchBox.value.toLowerCase();
                 var tagQuery = tagBox.value.toLowerCase();
                 searchResults.innerHTML = '';
-
+    
                 for (var i = 0; i < questions.length; i++) {
                     if (questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery)) {
                         var result = document.createElement('div');
