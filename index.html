@@ -51,14 +51,15 @@
                 var searchQuery = searchBox.value.toLowerCase();
                 var tagQuery = tagBox.value.toLowerCase();
                 searchResults.innerHTML = '';
-        
+    
                 for (var i = 0; i < questions.length; i++) {
                     if (questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery)) {
                         var result = document.createElement('div');
                         result.innerHTML = '<strong>Question:</strong> ' + questions[i].question +
                                            '<br><strong>Answer:</strong> ' + questions[i].answer +
                                            '<br><strong>Frequency:</strong> ' + questions[i].frequency +
-                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
+                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ') +
+                                           '<br><strong>Occasion:</strong> ' + questions[i].occasion;
                         if (questions[i].imageUrl) {
                             var img = document.createElement('img');
                             img.src = questions[i].imageUrl;
