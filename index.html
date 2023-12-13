@@ -11,10 +11,13 @@
         }
         #searchBox, #tagBox {
             display: block;
-            width: 100%;
+            width: 80%;
             padding: 10px;
             font-size: 16px;
-            margin-bottom: 10px;
+            margin: 20px auto;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
         #searchResults {
             margin-top: 20px;
@@ -22,12 +25,15 @@
             background-color: #fff;
             border-radius: 5px;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            width: 80%;
+            margin: auto;
         }
         #searchResults div {
             margin-bottom: 20px;
             padding: 20px;
             background-color: #f9f9f9;
             border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -36,13 +42,8 @@
     <input type="text" id="tagBox" placeholder="Filter by tags..." onkeyup="searchQuestions()">
     <div id="searchResults"></div>
 
+    <script src="questions.js"></script>
     <script>
-        var questions = [
-            { question: "What is the capital of France?", answer: "Paris", time: "2023-12-13T14:53:49Z", tags: ["geography", "capitals"] },
-            { question: "What is the capital of China?", answer: "Beijing", time: "2023-12-13T14:53:49Z", tags: ["geography", "capitals"] },
-            // Add more questions here...
-        ];
-
         function searchQuestions() {
             var searchBox = document.getElementById('searchBox');
             var tagBox = document.getElementById('tagBox');
