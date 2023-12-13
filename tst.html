@@ -2,48 +2,55 @@
 <html>
 <head>
     <title>QE Q&A Database</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        #searchBox, #tagBox {
-            display: block;
-            width: 80%;
-            padding: 2% 1%;
-            font-size: 1em; /* relative font size */
-            margin: 1em auto;
-            border: none;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-        #searchResults {
-            margin-top: 20px;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            width: 80%;
-            margin: auto;
-        }
-        #searchResults div {
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-    
-        /* Media query for screens smaller than 600px */
-        @media (max-width: 600px) {
-            #searchBox, #tagBox {
-                font-size: 1.5em; /* larger font size for small screens */
-                padding: 4% 2%; /* larger padding for small screens */
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
             }
-        }
-    </style>
+            #searchBox, #tagBox {
+                display: block;
+                width: 80%;
+                padding: 2% 1%;
+                font-size: 1em; /* relative font size */
+                margin: 1em auto;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            }
+            #searchResults {
+                margin-top: 20px;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+                width: 80%;
+                margin: auto;
+            }
+            #searchResults div {
+                margin-bottom: 20px;
+                padding: 20px;
+                background-color: #f9f9f9;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            }
+            img {
+                max-width: 100%; /* make images responsive */
+                height: auto;
+            }
+        
+            /* Media query for screens smaller than 600px */
+            @media (max-width: 600px) {
+                #searchBox, #tagBox {
+                    font-size: 2em; /* larger font size for small screens */
+                    padding: 4% 2%; /* larger padding for small screens */
+                }
+                #searchResults {
+                    width: 90%; /* make search results take up more width on small screens */
+                }
+            }
+        </style>
 </head>
 <body>
     <input type="text" id="searchBox" placeholder="Search questions..." onkeyup="searchQuestions()">
