@@ -6,5 +6,12 @@ var questions = [
       imageUrl: "imageassets/1.png", 
       occasion: "HCZ QE: Suspension Culture & AKTi4 as Antibacterials", 
       asker: "Prof. Tzu-Ming LIU" },
+    { question: "2. Could adherence and morphology affect ESC differentiation?", 
+      answer: "<br>1. Research conducted by Dr. DCH and ZZY demonstrated that cells located near the edges of the ES colonies are more sensitive to induction. <br>2. Some biomaterial research pointed out mechanics could be used to regulate stem cell differentiation.", 
+      frequency: 1, 
+      tags: ["cellularbio"], 
+      imageUrl:"imageassets/2.jpg", 
+      occasion: "HCZ QE: Suspension Culture & AKTi4 as Antibacterials", 
+      asker: "Prof. WANG Chunming" },
     // Add more questions here...
 ];
