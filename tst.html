@@ -56,19 +56,16 @@
                     if (questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery)) {
                         var result = document.createElement('div');
                         result.innerHTML = '<strong>Question:</strong> ' + questions[i].question +
-                                           '<br><strong>Answer:</strong> ' + questions[i].answer +
-                                           '<br><strong>Frequency:</strong> ' + questions[i].frequency +
-                                           '<br><strong>Occasion:</strong> ' + questions[i].occasion +
-                                           '<br><strong>Asker:</strong> ' + questions[i].asker +
-                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
+                                           '<br><strong>Answer:</strong> ' + questions[i].answer;
                         if (questions[i].imageUrl) {
                             var img = document.createElement('img');
                             img.src = questions[i].imageUrl;
                             img.style.width = '200px';
                             img.style.cursor = 'pointer';
-                            img.onclick = function() {
+                            img.style.border = '2px solid #000';
+                            img.onclick = function(e) {
                                 var newImg = new Image();
-                                newImg.src = this.src;
+                                newImg.src = e.target.src;
                                 newImg.style.display = 'block';
                                 newImg.style.margin = 'auto';
                                 newImg.style.maxWidth = '100%';
@@ -89,8 +86,13 @@
                                 };
                                 document.body.appendChild(overlay);
                             };
+                            result.innerHTML += '<br>';
                             result.appendChild(img);
                         }
+                        result.innerHTML += '<br><strong>Frequency:</strong> ' + questions[i].frequency +
+                                            '<br><strong>Occasion:</strong> ' + questions[i].occasion +
+                                            '<br><strong>Asker:</strong> ' + questions[i].asker +
+                                            '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
                         searchResults.appendChild(result);
                     }
                 }
