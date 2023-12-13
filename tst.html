@@ -56,15 +56,16 @@
                     if (questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery)) {
                         var result = document.createElement('div');
                         result.innerHTML = '<strong>Question:</strong> ' + questions[i].question +
-                                           '<br><strong>Answer:</strong> ' + questions[i].answer;
+                                           '<br><strong>Answer:</strong> ' + questions[i].answer +
+                                           '<br><strong>Frequency:</strong> ' + questions[i].frequency +
+                                           '<br><strong>Occasion:</strong> ' + questions[i].occasion +
+                                           '<br><strong>Asker:</strong> ' + questions[i].asker +
+                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
                         if (questions[i].imageUrl) {
                             var img = document.createElement('img');
                             img.src = questions[i].imageUrl;
                             img.style.width = '200px';
                             img.style.cursor = 'pointer';
-                            img.style.border = '2px solid #000';
-                            img.style.display = 'block';
-                            img.style.margin = '10px 0';
                             img.onclick = function() {
                                 var newImg = new Image();
                                 newImg.src = this.src;
@@ -90,10 +91,6 @@
                             };
                             result.appendChild(img);
                         }
-                        result.innerHTML += '<br><strong>Frequency:</strong> ' + questions[i].frequency +
-                                            '<br><strong>Occasion:</strong> ' + questions[i].occasion +
-                                            '<br><strong>Asker:</strong> ' + questions[i].asker +
-                                            '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
                         searchResults.appendChild(result);
                     }
                 }
