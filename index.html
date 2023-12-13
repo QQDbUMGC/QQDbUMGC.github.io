@@ -41,7 +41,6 @@
     <input type="text" id="searchBox" placeholder="Search questions..." onkeyup="searchQuestions()">
     <input type="text" id="tagBox" placeholder="Filter by tags..." onkeyup="searchQuestions()">
     <div id="searchResults"></div>
-
     <script src="questions.js"></script>
         <script>
             function searchQuestions() {
@@ -51,7 +50,7 @@
                 var searchQuery = searchBox.value.toLowerCase();
                 var tagQuery = tagBox.value.toLowerCase();
                 searchResults.innerHTML = '';
-        
+
                 for (var i = 0; i < questions.length; i++) {
                     if (questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery)) {
                         var result = document.createElement('div');
@@ -64,30 +63,6 @@
                             var img = document.createElement('img');
                             img.src = questions[i].imageUrl;
                             img.style.width = '200px';
-                            img.style.cursor = 'pointer';
-                            img.onclick = function() {
-                                var newImg = new Image();
-                                newImg.src = this.src;
-                                newImg.style.display = 'block';
-                                newImg.style.margin = 'auto';
-                                newImg.style.maxWidth = '100%';
-                                newImg.style.maxHeight = '100%';
-                                var overlay = document.createElement('div');
-                                overlay.style.position = 'fixed';
-                                overlay.style.top = '0';
-                                overlay.style.bottom = '0';
-                                overlay.style.left = '0';
-                                overlay.style.right = '0';
-                                overlay.style.backgroundColor = 'rgba(0,0,0,0.7)';
-                                overlay.style.display = 'flex';
-                                overlay.style.justifyContent = 'center';
-                                overlay.style.alignItems = 'center';
-                                overlay.appendChild(newImg);
-                                overlay.onclick = function() {
-                                    document.body.removeChild(this);
-                                };
-                                document.body.appendChild(overlay);
-                            };
                             result.appendChild(img);
                         }
                         searchResults.appendChild(result);
