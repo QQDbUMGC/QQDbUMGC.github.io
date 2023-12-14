@@ -86,6 +86,10 @@
         <input type="text" id="searchBox" placeholder="Search..." onkeyup="searchQuestions()">
     </div>
     <div id="searchResults"></div>
+    <div id="modal" style="display: none; position: fixed; z-index: 1; padding-top: 100px; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
+        <span id="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+        <img id="modalImage" style="margin: auto; display: block; width: 80%; max-width: 700px;">
+    </div>
 
     <script src="questions.js"></script>
     <script>
@@ -106,7 +110,7 @@
                     var html = '<span class="label">Question:</span> ' + questions[i].question +
                                '<br><span class="label">Answer:</span> ' + questions[i].answer;
                     if (questions[i].imageUrl) {
-                        html += '<br><img src="' + questions[i].imageUrl + '" style="width: 200px; cursor: pointer; border: 2px solid #000;" onclick="enlargeImage(this)">';
+                        html += '<br><img src="' + questions[i].imageUrl + '" style="width: 200px; cursor: pointer; border: 2px solid #000;" onclick="openModal(this.src)">';
                     }
                     html += '<br><span class="label">Frequency:</span> ' + questions[i].frequency +
                             '<br><span class="label">Occasion:</span> ' + questions[i].occasion +
@@ -118,8 +122,13 @@
             }
         }
 
-        function enlargeImage(imageElement) {
-            imageElement.style.width = "400px"; // or any size you want
+        function openModal(src) {
+            document.getElementById('modal').style.display = "block";
+            document.getElementById('modalImage').src = src;
+        }
+
+        document.getElementById('close').onclick = function() {
+            document.getElementById('modal').style.display = "none";
         }
     </script>
 </body>
