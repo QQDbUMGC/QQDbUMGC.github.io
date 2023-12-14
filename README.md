@@ -10,6 +10,14 @@ This is a simple Q&A database page where users, mostly colleagues from my lab, c
 - View images for some answers
 - Submit new questions (see below for the template)
 
+### How tags work.
+
+Generally, there are three categories of questions that would be raised during QE, according to the assessment form, and they are:
+- Broad knowledge: tagged #basic
+- Specific knowledge about the research topic: tagged #spzd
+- Principles of the techniques used in the project. tagged #tech
+We intend to cover most of the questions from the first two categories and some of those from the third.
+
 ## How to access CHEN Lab QQDb
 
 <b>For general use, I believe [this webpage](https://qqdbumgc.github.io/) would be sufficient for general search and browsing.</b><br>
