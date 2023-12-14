@@ -90,33 +90,37 @@
     <script src="questions.js"></script>
     <script>
         function searchQuestions() {
-        var searchBox = document.getElementById('searchBox');
-        var searchOption = document.getElementById('searchOption');
-        var searchResults = document.getElementById('searchResults');
-        var searchQuery = searchBox.value.toLowerCase();
-        searchResults.innerHTML = '';
+            var searchBox = document.getElementById('searchBox');
+            var searchOption = document.getElementById('searchOption');
+            var searchResults = document.getElementById('searchResults');
+            var searchQuery = searchBox.value.toLowerCase();
+            searchResults.innerHTML = '';
 
-        for (var i = 0; i < questions.length; i++) {
-            var questionString = JSON.stringify(questions[i]).toLowerCase();
-            if ((searchOption.value === 'all' && questionString.includes(searchQuery)) ||
-                (searchOption.value === 'question' && questions[i].question.toLowerCase().includes(searchQuery)) ||
-                (searchOption.value === 'tags' && questions[i].tags.join(', ').toLowerCase().includes(searchQuery)) ||
-                (searchOption.value === 'asker' && questions[i].asker.toLowerCase().includes(searchQuery))) {
-                var result = document.createElement('div');
-                var html = '<span class="label">Question:</span> ' + questions[i].question +
-                           '<br><span class="label">Answer:</span> ' + questions[i].answer;
-                if (questions[i].imageUrl) {
-                    html += '<br><img src="' + questions[i].imageUrl + '" style="width: 200px; cursor: pointer; border: 2px solid #000;">';
+            for (var i = 0; i < questions.length; i++) {
+                var questionString = JSON.stringify(questions[i]).toLowerCase();
+                if ((searchOption.value === 'all' && questionString.includes(searchQuery)) ||
+                    (searchOption.value === 'question' && questions[i].question.toLowerCase().includes(searchQuery)) ||
+                    (searchOption.value === 'tags' && questions[i].tags.join(', ').toLowerCase().includes(searchQuery)) ||
+                    (searchOption.value === 'asker' && questions[i].asker.toLowerCase().includes(searchQuery))) {
+                    var result = document.createElement('div');
+                    var html = '<span class="label">Question:</span> ' + questions[i].question +
+                               '<br><span class="label">Answer:</span> ' + questions[i].answer;
+                    if (questions[i].imageUrl) {
+                        html += '<br><img src="' + questions[i].imageUrl + '" style="width: 200px; cursor: pointer; border: 2px solid #000;" onclick="enlargeImage(this)">';
+                    }
+                    html += '<br><span class="label">Frequency:</span> ' + questions[i].frequency +
+                            '<br><span class="label">Occasion:</span> ' + questions[i].occasion +
+                            '<br><span class="label">Asker:</span> ' + questions[i].asker +
+                            '<br><span class="label">Tags:</span> ' + questions[i].tags.join(', ');
+                    result.innerHTML = html;
+                    searchResults.appendChild(result);
                 }
-                html += '<br><span class="label">Frequency:</span> ' + questions[i].frequency +
-                        '<br><span class="label">Occasion:</span> ' + questions[i].occasion +
-                        '<br><span class="label">Asker:</span> ' + questions[i].asker +
-                        '<br><span class="label">Tags:</span> ' + questions[i].tags.join(', ');
-                result.innerHTML = html;
-                searchResults.appendChild(result);
             }
         }
-    }
-</script>
+
+        function enlargeImage(imageElement) {
+            imageElement.style.width = "400px"; // or any size you want
+        }
+    </script>
 </body>
 </html>
