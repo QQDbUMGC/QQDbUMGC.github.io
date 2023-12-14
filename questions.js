@@ -21,10 +21,8 @@ var questions = [
       tags: ["basic","devbio"], 
       occasion: "ZZY QE"},
 
-        { question: "4. What is the advantages and disadvantages of a differentiation method?", 
-      answer: "<br>
-    	These are some aspects to consider.<br>
-    	<b>Efficiency</b>: How many of the hESCs are successfully differentiated into the desired cell type?<br>
+    { question: "4. What are the advantages and disadvantages of a differentiation method?", 
+      answer: "<br> These are some aspects to consider.<br><b>Efficiency</b>: How many of the hESCs are successfully differentiated into the desired cell type?<br>
     	<b>Purity</b>: Are the differentiated cells pure, or are there other cell types present?<br>
     	<b>Time</b>: How long does the differentiation process take?<br>
     	<b>Cost</b>: What are the costs associated with the differentiation method? This includes the cost of reagents, equipment, and labour.<br>
@@ -49,9 +47,7 @@ var questions = [
       asker: "Prof. XU Ren-he"},
 
     { question: "6. What are the potential hurdles for cell therapy?", 
-      answer: "<br>
-        	These are some aspects to consider.<br>
-        	Immunogenicity, cell survival, tumorigenicity (teratoma for remaining PSCs, fibroma and neoplasia for MSCs), limitations in the form of cell preparations/administrations, and regulatory requirements.
+      answer: "<br> These are some aspects to consider.<br> Immunogenicity, cell survival, tumorigenicity (teratoma for remaining PSCs, fibroma and neoplasia for MSCs), limitations in the form of cell preparations/administrations, and regulatory requirements.
         	", 
       frequency: 1, 
       tags: ["tech"], 
@@ -59,10 +55,7 @@ var questions = [
       asker: "Prof. XU Ren-he"},
 
     { question: "7. Could 3D culture help the differentiation?", 
-      answer: "<br>
-    	These are generally two forms of 3D cell culture, suspension and matrix-based.<br>
-    	Suspension culture is helpful to expand the cells and with the help of regulatory molecules endogenously secreted or from adjacent cells, differentiation into certain cell types or organoids is feasible.<br>
-    	Matrix-based 3D cell culture aims to provide ECM for cells and helps the administration of cells as patches or injectable preparations. Sometimes, mechanics or modification with regulatory molecules could regulate the differentiation.
+      answer: "<br> These are generally two forms of 3D cell culture, suspension and matrix-based.<br> Suspension culture is helpful to expand the cells and with the help of regulatory molecules endogenously secreted or from adjacent cells, differentiation into certain cell types or organoids is feasible.<br> Matrix-based 3D cell culture aims to provide ECM for cells and helps the administration of cells as patches or injectable preparations. Sometimes, mechanics or modification with regulatory molecules could regulate the differentiation.
     	", 
       frequency: 1, 
       tags: ["tech"], 
