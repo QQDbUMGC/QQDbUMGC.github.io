@@ -1,116 +1,125 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>QE Q&A Database</title>
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 0;
-                padding: 0;
-                background-color: #f0f0f0;
-            }
-            #searchBox, #tagBox {
-                display: block;
-                width: 80%;
-                padding: 2% 1%;
-                font-size: 1.5em; /* relative font size */
-                margin: 1em auto;
-                border: none;
-                border-radius: 5px;
-                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    <title>Q&A Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        #searchBox, #tagBox, #askerBox, #allBox {
+            display: block;
+            width: 80%;
+            padding: 2% 1%;
+            font-size: 1.5em;
+            margin: 1em auto;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        #searchResults {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            width: 80%;
+            margin: auto;
+        }
+        #searchResults div {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Media query for screens smaller than 600px */
+        @media (max-width: 600px) {
+            #searchBox, #tagBox, #askerBox, #allBox {
+                font-size: 2.5em;
+                padding: 4% 2%;
             }
             #searchResults {
-                margin-top: 20px;
-                padding: 20px;
-                background-color: #fff;
-                border-radius: 5px;
-                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-                width: 80%;
-                margin: auto;
+                width: 90%;
             }
-            #searchResults div {
-                margin-bottom: 20px;
-                padding: 20px;
-                background-color: #f9f9f9;
-                border-radius: 5px;
-                box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-            }
-            img {
-                max-width: 100%; /* make images responsive */
-                height: auto;
-            }
-        
-            /* Media query for screens smaller than 600px */
-            @media (max-width: 600px) {
-                #searchBox, #tagBox {
-                    font-size: 2.5em; /* larger font size for small screens */
-                    padding: 4% 2%; /* larger padding for small screens */
-                }
-                #searchResults {
-                    width: 90%; /* make search results take up more width on small screens */
-                }
-            }
-        </style>
+        }
+    </style>
 </head>
 <body>
     <input type="text" id="searchBox" placeholder="Search questions..." onkeyup="searchQuestions()">
     <input type="text" id="tagBox" placeholder="Filter by tags..." onkeyup="searchQuestions()">
+    <input type="text" id="askerBox" placeholder="Search by asker..." onkeyup="searchQuestions()">
+    <input type="text" id="allBox" placeholder="Search all properties..." onkeyup="searchQuestions()">
     <div id="searchResults"></div>
 
     <script src="questions.js"></script>
-        <script>
-            function searchQuestions() {
-                var searchBox = document.getElementById('searchBox');
-                var tagBox = document.getElementById('tagBox');
-                var searchResults = document.getElementById('searchResults');
-                var searchQuery = searchBox.value.toLowerCase();
-                var tagQuery = tagBox.value.toLowerCase();
-                searchResults.innerHTML = '';
-        
-                for (var i = 0; i < questions.length; i++) {
-                    if (questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery)) {
-                        var result = document.createElement('div');
-                        result.innerHTML = '<strong>Question:</strong> ' + questions[i].question +
-                                           '<br><strong>Answer:</strong> ' + questions[i].answer +
-                                           '<br><strong>Frequency:</strong> ' + questions[i].frequency +
-                                           '<br><strong>Occasion:</strong> ' + questions[i].occasion +
-                                           '<br><strong>Asker:</strong> ' + questions[i].asker +
-                                           '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
-                        if (questions[i].imageUrl) {
-                            var img = document.createElement('img');
-                            img.src = questions[i].imageUrl;
-                            img.style.width = '200px';
-                            img.style.cursor = 'pointer';
-                            img.onclick = function() {
-                                var newImg = new Image();
-                                newImg.src = this.src;
-                                newImg.style.display = 'block';
-                                newImg.style.margin = 'auto';
-                                newImg.style.maxWidth = '100%';
-                                newImg.style.maxHeight = '100%';
-                                var overlay = document.createElement('div');
-                                overlay.style.position = 'fixed';
-                                overlay.style.top = '0';
-                                overlay.style.bottom = '0';
-                                overlay.style.left = '0';
-                                overlay.style.right = '0';
-                                overlay.style.backgroundColor = 'rgba(0,0,0,0.7)';
-                                overlay.style.display = 'flex';
-                                overlay.style.justifyContent = 'center';
-                                overlay.style.alignItems = 'center';
-                                overlay.appendChild(newImg);
-                                overlay.onclick = function() {
-                                    document.body.removeChild(this);
-                                };
-                                document.body.appendChild(overlay);
+    <script>
+        function searchQuestions() {
+            var searchBox = document.getElementById('searchBox');
+            var tagBox = document.getElementById('tagBox');
+            var askerBox = document.getElementById('askerBox');
+            var allBox = document.getElementById('allBox');
+            var searchResults = document.getElementById('searchResults');
+            var searchQuery = searchBox.value.toLowerCase();
+            var tagQuery = tagBox.value.toLowerCase();
+            var askerQuery = askerBox.value.toLowerCase();
+            var allQuery = allBox.value.toLowerCase();
+            searchResults.innerHTML = '';
+
+            for (var i = 0; i < questions.length; i++) {
+                var questionString = JSON.stringify(questions[i]).toLowerCase();
+                if (questionString.includes(allQuery) && questions[i].question.toLowerCase().includes(searchQuery) && questions[i].tags.join(', ').toLowerCase().includes(tagQuery) && questions[i].asker.toLowerCase().includes(askerQuery)) {
+                    var result = document.createElement('div');
+                    result.innerHTML = '<strong>Question:</strong> ' + questions[i].question +
+                                       '<br><strong>Answer:</strong> ' + questions[i].answer;
+                    if (questions[i].imageUrl) {
+                        var img = document.createElement('img');
+                        img.src = questions[i].imageUrl;
+                        img.style.width = '200px';
+                        img.style.cursor = 'pointer';
+                        img.style.border = '2px solid #000';
+                        img.style.display = 'block';
+                        img.style.margin = '10px 0';
+                        img.onclick = function(e) {
+                            var newImg = new Image();
+                            newImg.src = e.target.src;
+                            newImg.style.display = 'block';
+                            newImg.style.margin = 'auto';
+                            newImg.style.maxWidth = '100%';
+                            newImg.style.maxHeight = '100%';
+                            var overlay = document.createElement('div');
+                            overlay.style.position = 'fixed';
+                            overlay.style.top = '0';
+                            overlay.style.bottom = '0';
+                            overlay.style.left = '0';
+                            overlay.style.right = '0';
+                            overlay.style.backgroundColor = 'rgba(0,0,0,0.7)';
+                            overlay.style.display = 'flex';
+                            overlay.style.justifyContent = 'center';
+                            overlay.style.alignItems = 'center';
+                            overlay.appendChild(newImg);
+                            overlay.onclick = function() {
+                                document.body.removeChild(this);
                             };
-                            result.innerHTML += '<br>';
-                            result.appendChild(img);
-                        }
-                        searchResults.appendChild(result);
+                            document.body.appendChild(overlay);
+                        };
+                        result.appendChild(img);
                     }
+                    result.innerHTML += '<br><strong>Frequency:</strong> ' + questions[i].frequency +
+                                        '<br><strong>Occasion:</strong> ' + questions[i].occasion +
+                                        '<br><strong>Asker:</strong> ' + questions[i].asker +
+                                        '<br><strong>Tags:</strong> ' + questions[i].tags.join(', ');
+                    searchResults.appendChild(result);
                 }
             }
-        </script>
+        }
+    </script>
 </body>
 </html>
