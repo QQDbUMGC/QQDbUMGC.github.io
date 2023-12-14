@@ -50,7 +50,7 @@ var questions = [
       asker: "Prof. XU Ren-he"},
 
     { question: "8. What cell fate could be induced by BMP4?", 
-      answer: "<br><b>Trophoblasts</b><br><b>Mesodermal cells</b><br><b>Endodermal cells</b><br><b>Amniotic cells</b><br>The final differentiated types of cells depend on the timing and dosage.", 
+      answer: "<br><b>1. Trophoblasts</b><br><b>2. Mesodermal cells</b><br><b>3. Endodermal cells (w/ Activin A)</b><br><b>4. Amniotic cells</b><br>The final differentiated types of cells depend on the timing and dosage.", 
       frequency: 1, 
       tags: ["tech"], 
       occasion: "FSC QE: Keratinocyte Differentiation",
