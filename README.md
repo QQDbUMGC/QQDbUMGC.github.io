@@ -14,6 +14,7 @@ This is a simple Q&A database page where users, mostly colleagues from my lab, c
 
 Generally, there are three categories of questions that would be raised during QE, according to the assessment form, and they are:
 - Broad knowledge: tagged #basic
+    - Further dived into cellular biology (#cellbio), developmental biology (#devbio), and genetics (#genetics)
 - Specific knowledge about the research topic: tagged #spzd
 - Principles of the techniques used in the project. tagged #tech
 We intend to cover most of the questions from the first two categories and some of those from the third.
@@ -31,7 +32,7 @@ To submit a new question, please provide the following information in either the
 - **Question:** The text of your question
 - **Answer:** The answer to your question
 - **Frequency:** How often this question has been asked
-- **Tags:** Any relevant tags for this question (e.g., "geography", "science")
+- **Tags:** Any relevant tags for this question (e.g., "basic", "devbio")
 - **Occasion:** The occasion when this question is asked
 - **Asker:** The PAC member that asks this question.
 - **Image (optional):** A URL of an image that serves as the answer to your question
